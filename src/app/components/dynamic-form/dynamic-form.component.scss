@@ -1,0 +1,21 @@
+form {
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+
+    &.row {
+      flex-direction: row;
+    }
+  }
+
+  .error {
+    font-style: italic;
+    color: red
+  }
+
+  button {
+    margin-top: 10px;
+    width: 100%
+  }
+}
