@@ -1,6 +1,5 @@
-import { MockForm } from './../../shared/mock/mock-form';
-import { FormData } from './../../shared/classes/form-data';
-import { Component, OnInit } from '@angular/core';
+import { FormData } from './../../shared/interface/form-data';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -9,16 +8,16 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./dynamic-form.component.scss']
 })
 export class DynamicFormComponent implements OnInit {
-  data: FormData[];
+  @Input()formData: FormData[];
   form: FormGroup;
+  submitted: boolean;
 
   constructor() {}
 
   ngOnInit() {
-    this.data = MockForm;
-
     const formGroup = {};
-    this.data.forEach(formControl => {
+
+    this.formData.forEach(formControl => {
       formGroup[formControl.controlName] = new FormControl('');
     });
 
@@ -26,6 +25,6 @@ export class DynamicFormComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.form);
+    this.submitted = true;
   }
 }

@@ -1,6 +1,6 @@
 <form [formGroup]="form" (submit)="submitForm()">
 
-  <ng-template ngFor let-input [ngForOf]="data">
+  <ng-template ngFor let-input [ngForOf]="formData">
 
     <ng-container [ngSwitch]="input.controlType">
       <ng-template [ngSwitchCase]="'text'">
@@ -19,7 +19,6 @@
 
       <ng-template [ngSwitchCase]="'select'">
         <div class="form-group">
-
           <label [for]="input.controlName"> {{input.controlName}}</label>
           <select [formControlName]="input.controlName" [name]="input.controlName" [id]="input.controlName"
           [required]="input.validators.required">
@@ -43,4 +42,7 @@
   <button type="submit" [disabled]="form.invalid">
     Submit
   </button>
+  <div *ngIf="submitted">
+    <pre>{{form.value | json}}</pre>
+  </div>
 </form>

@@ -1,4 +1,4 @@
-export class FormData {
+export interface FormData {
   controlName: string;
   controlType: string;
   valueType?: string;
@@ -8,7 +8,7 @@ export class FormData {
     optionName: string;
     value: string;
   }>;
-  validators: {
+  validators?: {
     required?: boolean;
     minlength?: number;
     maxlength?: number;

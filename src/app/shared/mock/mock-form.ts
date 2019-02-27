@@ -1,4 +1,4 @@
-import { FormData } from './../classes/form-data';
+import { FormData } from './../interface/form-data';
 
 export const MockForm: FormData[] = [
   {
